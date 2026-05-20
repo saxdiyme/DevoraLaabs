@@ -138,7 +138,7 @@ function CaseCard({
       </div>
 
       <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <span className="inline-flex items-center gap-2 rounded-full bg-dl-orange px-5 py-2.5 font-inter text-sm font-semibold text-dl-deep shadow-[0_0_28px_rgba(212,175,55,0.55)]">
+        <span className="inline-flex items-center gap-2 rounded-full bg-dl-orange px-5 py-2.5 font-inter text-sm font-semibold text-dl-deep shadow-[0_12px_32px_rgba(14,61,46,0.32)]">
           View Case
           <ArrowUpRight size={16} />
         </span>

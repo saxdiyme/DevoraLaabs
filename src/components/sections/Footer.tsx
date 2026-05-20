@@ -115,7 +115,7 @@ export default function Footer() {
             </a>
             <a
               href="#cta"
-              className="group inline-flex w-fit items-center gap-2 rounded-full bg-dl-orange px-4 py-2 font-inter text-sm font-semibold text-dl-deep transition-all hover:bg-dl-peach hover:shadow-[0_0_20px_rgba(212,175,55,0.45)]"
+              className="group inline-flex w-fit items-center gap-2 rounded-full bg-dl-orange px-4 py-2 font-inter text-sm font-semibold text-dl-deep transition-all hover:bg-dl-peach hover:shadow-[0_8px_20px_rgba(14,61,46,0.2)]"
             >
               Start a Project
               <ArrowRight

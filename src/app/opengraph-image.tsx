@@ -16,9 +16,9 @@ export default async function OpengraphImage() {
           width: "100%",
           height: "100%",
           padding: 80,
-          background: "#0A0A0B",
+          background: "#FAFAF7",
           backgroundImage:
-            "radial-gradient(circle at 75% 18%, rgba(212,175,55,0.42), transparent 55%), radial-gradient(circle at 8% 92%, rgba(184,146,65,0.18), transparent 60%)",
+            "radial-gradient(circle at 75% 18%, rgba(14,61,46,0.10), transparent 55%), radial-gradient(circle at 8% 92%, rgba(14,61,46,0.06), transparent 60%)",
           fontFamily: "sans-serif",
         }}
       >
@@ -30,9 +30,9 @@ export default async function OpengraphImage() {
               justifyContent: "center",
               width: 64,
               height: 64,
-              background: "#D4AF37",
+              background: "#0E3D2E",
               borderRadius: 14,
-              color: "#0A0A0B",
+              color: "#FAFAF7",
               fontWeight: 900,
               fontSize: 30,
               letterSpacing: -1,
@@ -45,7 +45,7 @@ export default async function OpengraphImage() {
               style={{
                 fontSize: 36,
                 fontWeight: 800,
-                background: "linear-gradient(135deg, #D4AF37, #B89241)",
+                background: "linear-gradient(135deg, #0E3D2E, #155F44)",
                 backgroundClip: "text",
                 color: "transparent",
                 lineHeight: 1,
@@ -56,7 +56,7 @@ export default async function OpengraphImage() {
             <div
               style={{
                 fontSize: 14,
-                color: "#8E8E92",
+                color: "#6B6B6B",
                 letterSpacing: 4,
                 marginTop: 8,
               }}
@@ -73,14 +73,14 @@ export default async function OpengraphImage() {
               flexDirection: "column",
               fontSize: 92,
               fontWeight: 900,
-              color: "#F5F0E6",
+              color: "#0A0A0A",
               lineHeight: 1.02,
               letterSpacing: -2,
             }}
           >
             <span
               style={{
-                background: "linear-gradient(135deg, #D4AF37, #B89241)",
+                background: "linear-gradient(135deg, #0E3D2E, #155F44)",
                 backgroundClip: "text",
                 color: "transparent",
               }}
@@ -89,7 +89,7 @@ export default async function OpengraphImage() {
             </span>
             <span>Products That Scale</span>
           </div>
-          <div style={{ display: "flex", fontSize: 26, color: "#8E8E92" }}>
+          <div style={{ display: "flex", fontSize: 26, color: "#6B6B6B" }}>
             Web · iOS · Android · UI/UX · DevOps · AI · SaaS
           </div>
         </div>

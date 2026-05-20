@@ -8,30 +8,30 @@
    Devora Laabs · Brand Design Tokens (Tailwind v4 @theme)
    ─────────────────────────────────────────────────────────── */
 @theme {
-  /* Brand colors — premium black & gold palette */
-  --color-dl-orange: #d4af37;
-  --color-dl-deep: #0a0a0b;
-  --color-dl-navy: #2a2a30;
-  --color-dl-peach: #b89241;
-  --color-dl-slate: #14141a;
-  --color-dl-warm-white: #f5f0e6;
-  --color-dl-muted: #8e8e92;
+  /* Brand colors — Option A · Stripe/Linear premium (light, emerald) */
+  --color-dl-orange: #0e3d2e;
+  --color-dl-deep: #fafaf7;
+  --color-dl-navy: #e5e4de;
+  --color-dl-peach: #155f44;
+  --color-dl-slate: #ffffff;
+  --color-dl-warm-white: #0a0a0a;
+  --color-dl-muted: #6b6b6b;
 
   /* Brand background gradients */
   --background-image-dot-grid: radial-gradient(
     circle,
-    #2a2a30 1px,
+    #d8d6cf 1px,
     transparent 1px
   );
   --background-image-brand-gradient: linear-gradient(
     135deg,
-    #d4af37,
-    #b89241
+    #0e3d2e,
+    #155f44
   );
   --background-image-brand-gradient-soft: linear-gradient(
     135deg,
-    rgba(212, 175, 55, 0.18),
-    rgba(184, 146, 65, 0.06)
+    rgba(14, 61, 46, 0.12),
+    rgba(21, 95, 68, 0.04)
   );
 
   /* Brand animations */
@@ -136,37 +136,37 @@
    (Button, Card, Input, etc.) inherit brand colors automatically.
    ─────────────────────────────────────────────────────────── */
 .dark {
-  --background: #0a0a0b; /* dl-deep */
-  --foreground: #f5f0e6; /* warm white */
-  --card: #14141a; /* dl-slate */
-  --card-foreground: #f5f0e6;
-  --popover: #14141a;
-  --popover-foreground: #f5f0e6;
-  --primary: #d4af37; /* dl-orange (imperial gold) */
-  --primary-foreground: #0a0a0b;
-  --secondary: #2a2a30; /* dl-navy (warm steel border) */
-  --secondary-foreground: #f5f0e6;
-  --muted: #14141a;
-  --muted-foreground: #8e8e92;
-  --accent: #b89241; /* dl-peach (brass) */
-  --accent-foreground: #f5f0e6;
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: rgba(42, 42, 48, 0.4); /* dl-navy / 40 */
-  --input: rgba(42, 42, 48, 0.5);
-  --ring: #d4af37;
-  --chart-1: #d4af37;
-  --chart-2: #b89241;
-  --chart-3: #2a2a30;
-  --chart-4: #14141a;
-  --chart-5: #8e8e92;
-  --sidebar: #0a0a0b;
-  --sidebar-foreground: #f5f0e6;
-  --sidebar-primary: #d4af37;
-  --sidebar-primary-foreground: #0a0a0b;
-  --sidebar-accent: #14141a;
-  --sidebar-accent-foreground: #f5f0e6;
-  --sidebar-border: rgba(42, 42, 48, 0.4);
-  --sidebar-ring: #d4af37;
+  --background: #fafaf7; /* dl-deep */
+  --foreground: #0a0a0a; /* warm white -> ink */
+  --card: #ffffff; /* dl-slate */
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #0e3d2e; /* dl-orange -> deep emerald */
+  --primary-foreground: #fafaf7;
+  --secondary: #e5e4de; /* dl-navy -> sand border */
+  --secondary-foreground: #0a0a0a;
+  --muted: #f0efeb;
+  --muted-foreground: #6b6b6b;
+  --accent: #155f44; /* dl-peach -> emerald lighter */
+  --accent-foreground: #fafaf7;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(10, 10, 10, 0.1);
+  --input: rgba(10, 10, 10, 0.15);
+  --ring: #0e3d2e;
+  --chart-1: #0e3d2e;
+  --chart-2: #155f44;
+  --chart-3: #e5e4de;
+  --chart-4: #ffffff;
+  --chart-5: #6b6b6b;
+  --sidebar: #fafaf7;
+  --sidebar-foreground: #0a0a0a;
+  --sidebar-primary: #0e3d2e;
+  --sidebar-primary-foreground: #fafaf7;
+  --sidebar-accent: #f0efeb;
+  --sidebar-accent-foreground: #0a0a0a;
+  --sidebar-border: rgba(10, 10, 10, 0.1);
+  --sidebar-ring: #0e3d2e;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -196,10 +196,10 @@
 @keyframes glow-pulse {
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+    box-shadow: 0 0 20px rgba(14, 61, 46, 0.18);
   }
   50% {
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.55);
+    box-shadow: 0 0 40px rgba(14, 61, 46, 0.32);
   }
 }
 
@@ -276,23 +276,23 @@
    ─────────────────────────────────────────────────────────── */
 @layer utilities {
   .text-brand-gradient {
-    background: linear-gradient(135deg, #d4af37, #b89241);
+    background: linear-gradient(135deg, #0e3d2e, #155f44);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .bg-glass {
-    background: rgba(20, 20, 26, 0.6);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
 
   .ring-brand-glow {
-    box-shadow: 0 0 24px rgba(212, 175, 55, 0.22);
+    box-shadow: 0 8px 24px rgba(14, 61, 46, 0.12);
   }
 
   .border-brand-soft {
-    border: 1px solid rgba(42, 42, 48, 0.4);
+    border: 1px solid rgba(10, 10, 10, 0.08);
   }
 }
