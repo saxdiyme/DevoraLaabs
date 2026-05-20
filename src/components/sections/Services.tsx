@@ -127,7 +127,7 @@ function ServiceCard({ title, description, Icon, badges }: Service) {
       variants={CARD_VARIANTS}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -4 }}
-      className="group relative flex flex-col gap-5 overflow-hidden rounded-2xl border border-dl-navy/30 bg-glass p-6 transition-all duration-300 hover:border-dl-orange/60 hover:shadow-[0_0_28px_rgba(201,162,74,0.18)]"
+      className="group relative flex flex-col gap-5 overflow-hidden rounded-2xl border border-dl-navy/30 bg-glass p-6 transition-all duration-300 hover:border-dl-orange/60 hover:shadow-[0_0_28px_rgba(212,175,55,0.22)]"
     >
       <span
         aria-hidden

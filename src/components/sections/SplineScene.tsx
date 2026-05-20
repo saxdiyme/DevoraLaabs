@@ -154,7 +154,7 @@ function OrbitalScene() {
 
         <div
           aria-hidden
-          className="pointer-events-none relative h-32 w-32 rounded-full bg-brand-gradient shadow-[0_0_80px_rgba(201,162,74,0.5)] md:h-40 md:w-40"
+          className="pointer-events-none relative h-32 w-32 rounded-full bg-brand-gradient shadow-[0_0_90px_rgba(212,175,55,0.55)] md:h-40 md:w-40"
         >
           <span className="absolute left-5 top-3 h-10 w-10 rounded-full bg-white/30 blur-md" />
           <span className="absolute left-3 top-2 h-4 w-4 rounded-full bg-white/70 blur-sm" />
@@ -190,7 +190,7 @@ function OrbitalScene() {
                 <div
                   className={`flex h-9 w-9 items-center justify-center rounded-full border-2 transition-all duration-300 ${
                     isActive
-                      ? "scale-125 border-dl-orange bg-dl-orange text-dl-deep shadow-[0_0_18px_rgba(201,162,74,0.6)]"
+                      ? "scale-125 border-dl-orange bg-dl-orange text-dl-deep shadow-[0_0_20px_rgba(212,175,55,0.65)]"
                       : isRelated
                         ? "animate-pulse border-dl-orange bg-dl-slate text-dl-orange"
                         : "border-dl-navy/60 bg-dl-slate text-dl-orange"
@@ -210,7 +210,7 @@ function OrbitalScene() {
               </div>
 
               {isActive && (
-                <div className="absolute left-1/2 top-14 z-50 w-56 -translate-x-1/2 rounded-xl border border-dl-orange/40 bg-dl-deep/95 p-4 shadow-[0_0_30px_rgba(201,162,74,0.25)] backdrop-blur-md">
+                <div className="absolute left-1/2 top-14 z-50 w-56 -translate-x-1/2 rounded-xl border border-dl-orange/40 bg-dl-deep/95 p-4 shadow-[0_0_32px_rgba(212,175,55,0.3)] backdrop-blur-md">
                   <div className="absolute -top-3 left-1/2 h-3 w-px -translate-x-1/2 bg-dl-orange/60" />
                   <h4 className="font-syne text-sm font-bold text-dl-warm-white">
                     {p.title}
