@@ -153,7 +153,7 @@ function ServiceCard({ title, description, Icon, badges }: Service) {
         transformStyle: "preserve-3d",
         transformPerspective: 1000,
       }}
-      className="group relative flex flex-col gap-5 overflow-hidden rounded-2xl border border-dl-navy/30 bg-glass p-6 transition-all duration-300 hover:border-dl-orange/60 hover:shadow-[0_12px_32px_rgba(14,61,46,0.12)]"
+      className="group relative flex flex-col gap-5 overflow-hidden rounded-2xl border border-dl-navy/30 bg-glass p-6 transition-all duration-300 hover:border-dl-orange/60 hover:shadow-[0_0_36px_rgba(230,210,168,0.25)]"
     >
       <span
         aria-hidden

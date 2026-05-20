@@ -10,7 +10,7 @@ type Props = {
 
 export default function MouseSpotlight({
   className = "",
-  color = "rgba(14,61,46,0.10)",
+  color = "rgba(230,210,168,0.16)",
   radius = 520,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
