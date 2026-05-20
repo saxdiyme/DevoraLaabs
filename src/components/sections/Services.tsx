@@ -1,6 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import {
   ArrowRight,
   Cloud,
@@ -122,11 +127,32 @@ export default function Services() {
 }
 
 function ServiceCard({ title, description, Icon, badges }: Service) {
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const sx = useSpring(mx, { stiffness: 220, damping: 22, mass: 0.4 });
+  const sy = useSpring(my, { stiffness: 220, damping: 22, mass: 0.4 });
+  const rotateX = useTransform(sy, [-1, 1], [7, -7]);
+  const rotateY = useTransform(sx, [-1, 1], [-7, 7]);
+
   return (
     <motion.article
       variants={CARD_VARIANTS}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -4 }}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        mx.set((e.clientX - rect.left) / rect.width - 0.5);
+        my.set((e.clientY - rect.top) / rect.height - 0.5);
+      }}
+      onMouseLeave={() => {
+        mx.set(0);
+        my.set(0);
+      }}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+        transformPerspective: 1000,
+      }}
       className="group relative flex flex-col gap-5 overflow-hidden rounded-2xl border border-dl-navy/30 bg-glass p-6 transition-all duration-300 hover:border-dl-orange/60 hover:shadow-[0_12px_32px_rgba(14,61,46,0.12)]"
     >
       <span

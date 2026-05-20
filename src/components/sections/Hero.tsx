@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import CountUp from "@/components/ui/count-up";
+import MouseSpotlight from "@/components/ui/mouse-spotlight";
 import SplineScene from "./SplineScene";
 
 const FADE_UP = {
@@ -10,9 +12,9 @@ const FADE_UP = {
 };
 
 const STATS = [
-  { value: "50+", label: "Projects" },
-  { value: "5", label: "Years" },
-  { value: "3", label: "Countries" },
+  { to: 50, suffix: "+", label: "Projects" },
+  { to: 5, suffix: "", label: "Years" },
+  { to: 3, suffix: "", label: "Countries" },
 ] as const;
 
 export default function Hero() {
@@ -29,6 +31,7 @@ export default function Hero() {
         className="absolute left-1/2 top-1/2 -z-10 h-[80vw] max-h-[900px] w-[80vw] max-w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-dl-orange/10 blur-[120px]"
         aria-hidden
       />
+      <MouseSpotlight className="-z-10" />
 
       <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 py-16 md:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8">
         <motion.div
@@ -91,7 +94,7 @@ export default function Hero() {
             {STATS.map((s) => (
               <motion.div key={s.label} variants={FADE_UP}>
                 <dt className="font-syne text-3xl font-bold text-dl-orange md:text-4xl">
-                  {s.value}
+                  <CountUp to={s.to} suffix={s.suffix} />
                 </dt>
                 <dd className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-dl-muted">
                   {s.label}
