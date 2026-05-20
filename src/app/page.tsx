@@ -5,6 +5,7 @@ import Process from "@/components/sections/Process";
 import Portfolio from "@/components/sections/Portfolio";
 import TechStack from "@/components/sections/TechStack";
 import CTA from "@/components/sections/CTA";
+import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <TechStack />
         <CTA />
       </main>
+      <Footer />
     </>
   );
 }
