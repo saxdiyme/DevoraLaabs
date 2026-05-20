@@ -66,7 +66,7 @@ export default function Hero() {
           <motion.div variants={FADE_UP} className="mt-2 flex flex-wrap gap-3">
             <a
               href="#cta"
-              className="group inline-flex items-center gap-2 rounded-full bg-dl-orange px-6 py-3 font-inter font-semibold text-dl-deep transition-all hover:bg-dl-peach hover:shadow-[0_0_28px_rgba(255,91,4,0.45)]"
+              className="group inline-flex items-center gap-2 rounded-full bg-dl-orange px-6 py-3 font-inter font-semibold text-dl-deep transition-all hover:bg-dl-peach hover:shadow-[0_0_28px_rgba(201,162,74,0.45)]"
             >
               Start a Project
               <ArrowRight

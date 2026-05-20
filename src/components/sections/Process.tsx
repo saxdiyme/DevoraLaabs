@@ -47,16 +47,16 @@ const LINE_START_DELAY = 0.2;
 const NODE_FADE_STEP = 0.18;
 
 const INACTIVE_NODE = {
-  backgroundColor: "rgb(35, 61, 77)",
-  borderColor: "rgba(7, 80, 118, 0.4)",
-  color: "#FE7F2D",
-  boxShadow: "0 0 0 rgba(255,91,4,0)",
+  backgroundColor: "rgb(28, 51, 40)",
+  borderColor: "rgba(44, 74, 58, 0.4)",
+  color: "#A57333",
+  boxShadow: "0 0 0 rgba(201,162,74,0)",
 };
 const ACTIVE_NODE = {
-  backgroundColor: "rgb(255, 91, 4)",
-  borderColor: "rgb(255, 91, 4)",
-  color: "rgb(22, 35, 42)",
-  boxShadow: "0 0 18px rgba(255,91,4,0.55)",
+  backgroundColor: "rgb(201, 162, 74)",
+  borderColor: "rgb(201, 162, 74)",
+  color: "rgb(15, 27, 22)",
+  boxShadow: "0 0 18px rgba(201,162,74,0.55)",
 };
 
 export default function Process() {
@@ -117,7 +117,7 @@ function DesktopStepper({ inView }: { inView: boolean }) {
           y1="2"
           x2="1000"
           y2="2"
-          stroke="rgba(7, 80, 118, 0.35)"
+          stroke="rgba(44, 74, 58, 0.35)"
           strokeWidth="2"
           strokeLinecap="round"
         />
@@ -126,7 +126,7 @@ function DesktopStepper({ inView }: { inView: boolean }) {
           y1="2"
           x2="1000"
           y2="2"
-          stroke="#FF5B04"
+          stroke="#C9A24A"
           strokeWidth="2"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}

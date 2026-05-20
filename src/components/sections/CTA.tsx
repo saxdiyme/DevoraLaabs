@@ -142,7 +142,7 @@ export default function CTA() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="group inline-flex items-center gap-2 rounded-full bg-dl-orange px-6 py-3 font-inter font-semibold text-dl-deep transition-all hover:bg-dl-peach hover:shadow-[0_0_28px_rgba(255,91,4,0.45)] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:bg-dl-orange disabled:hover:shadow-none"
+                  className="group inline-flex items-center gap-2 rounded-full bg-dl-orange px-6 py-3 font-inter font-semibold text-dl-deep transition-all hover:bg-dl-peach hover:shadow-[0_0_28px_rgba(201,162,74,0.45)] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:bg-dl-orange disabled:hover:shadow-none"
                 >
                   {status === "submitting" ? (
                     <>
@@ -317,7 +317,7 @@ function Spotlight() {
           rx="1924.71"
           ry="273.501"
           transform="matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)"
-          fill="#FF5B04"
+          fill="#C9A24A"
           fillOpacity="0.21"
         />
       </g>

@@ -79,7 +79,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href="#cta"
-            className="hidden items-center justify-center rounded-full bg-dl-orange px-5 py-2.5 font-inter text-sm font-semibold text-dl-deep transition-all hover:bg-dl-peach hover:shadow-[0_0_20px_rgba(255,91,4,0.4)] sm:inline-flex"
+            className="hidden items-center justify-center rounded-full bg-dl-orange px-5 py-2.5 font-inter text-sm font-semibold text-dl-deep transition-all hover:bg-dl-peach hover:shadow-[0_0_20px_rgba(201,162,74,0.4)] sm:inline-flex"
           >
             Get in Touch
           </a>
