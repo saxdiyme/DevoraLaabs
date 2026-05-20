@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Syne, Inter, JetBrains_Mono } from "next/font/google";
+import { Geist, Inter, JetBrains_Mono } from "next/font/google";
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -8,10 +8,10 @@ import {
 } from "@/lib/site";
 import "./globals.css";
 
-const syne = Syne({
+const syne = Geist({
   variable: "--font-syne",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
