@@ -15,13 +15,6 @@ const STATS = [
   { value: "3", label: "Countries" },
 ] as const;
 
-const BADGES = [
-  { label: "iOS", style: { top: "8%", left: "0%" } },
-  { label: "Android", style: { top: "30%", right: "0%" } },
-  { label: "Web", style: { bottom: "18%", left: "4%" } },
-  { label: "AI", style: { bottom: "6%", right: "10%" } },
-] as const;
-
 export default function Hero() {
   return (
     <section
@@ -108,24 +101,8 @@ export default function Hero() {
           </motion.dl>
         </motion.div>
 
-        <div className="relative h-[360px] w-full sm:h-[480px] lg:h-[560px]">
+        <div className="relative h-[420px] w-full sm:h-[520px] lg:h-[580px]">
           <SplineScene />
-
-          {BADGES.map((b, i) => (
-            <motion.span
-              key={b.label}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.85 + i * 0.12, duration: 0.5 }}
-              style={{
-                ...b.style,
-                animationDelay: `${i * 0.6}s`,
-              }}
-              className="absolute rounded-full border border-dl-navy/60 bg-dl-slate px-3 py-1.5 font-mono text-xs text-dl-orange shadow-[0_8px_24px_rgba(0,0,0,0.4)] animate-float"
-            >
-              {b.label}
-            </motion.span>
-          ))}
         </div>
       </div>
 
