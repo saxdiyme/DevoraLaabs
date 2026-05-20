@@ -1,5 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Syne, Inter, JetBrains_Mono } from "next/font/google";
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_URL,
+} from "@/lib/site";
 import "./globals.css";
 
 const syne = Syne({
@@ -24,9 +30,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Devora Laabs — We Build Digital Products That Scale",
-  description:
-    "Devora Laabs by Kronyx Group is an IT product studio building web, iOS, Android, AI-powered SaaS, and cloud platforms for startups and businesses globally.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    template: `%s · ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
   keywords: [
     "Devora Laabs",
     "Kronyx Group",
@@ -38,23 +48,49 @@ export const metadata: Metadata = {
     "DevOps & Cloud",
     "AI integration",
     "SaaS",
+    "Next.js studio",
+    "React agency",
   ],
-  authors: [{ name: "Devora Laabs", url: "https://devoralabs.io" }],
-  creator: "Devora Laabs",
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Devora Laabs — We Build Digital Products That Scale",
+    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
     description:
       "Web · iOS · Android · UI/UX · DevOps · AI · SaaS. A Kronyx Group studio.",
-    url: "https://devoralabs.io",
-    siteName: "Devora Laabs",
+    url: SITE_URL,
+    siteName: SITE_NAME,
     type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Devora Laabs — We Build Digital Products That Scale",
+    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
     description:
       "Web · iOS · Android · UI/UX · DevOps · AI · SaaS. A Kronyx Group studio.",
   },
+  category: "technology",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#16232A",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
