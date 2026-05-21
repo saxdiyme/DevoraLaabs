@@ -16,7 +16,7 @@ export default async function OpengraphImage() {
           width: "100%",
           height: "100%",
           padding: 80,
-          background: "#000000",
+          background: "#0A2E2D",
           backgroundImage:
             "radial-gradient(circle at 75% 18%, rgba(230,210,168,0.32), transparent 55%), radial-gradient(circle at 8% 92%, rgba(212,184,136,0.14), transparent 60%)",
           fontFamily: "sans-serif",
@@ -32,7 +32,7 @@ export default async function OpengraphImage() {
               height: 64,
               background: "#E6D2A8",
               borderRadius: 14,
-              color: "#000000",
+              color: "#0A2E2D",
               fontWeight: 900,
               fontSize: 30,
               letterSpacing: -1,
@@ -56,7 +56,7 @@ export default async function OpengraphImage() {
             <div
               style={{
                 fontSize: 14,
-                color: "#7A7A7E",
+                color: "#7A8B86",
                 letterSpacing: 4,
                 marginTop: 8,
               }}
@@ -89,7 +89,7 @@ export default async function OpengraphImage() {
             </span>
             <span>Products That Scale</span>
           </div>
-          <div style={{ display: "flex", fontSize: 26, color: "#7A7A7E" }}>
+          <div style={{ display: "flex", fontSize: 26, color: "#7A8B86" }}>
             Web · iOS · Android · UI/UX · DevOps · AI · SaaS
           </div>
         </div>

@@ -47,7 +47,7 @@ const LINE_START_DELAY = 0.2;
 const NODE_FADE_STEP = 0.18;
 
 const INACTIVE_NODE = {
-  backgroundColor: "rgb(11, 11, 12)",
+  backgroundColor: "rgb(15, 57, 56)",
   borderColor: "rgba(255, 255, 255, 0.12)",
   color: "#D4B888",
   boxShadow: "0 0 0 rgba(230,210,168,0)",
@@ -55,7 +55,7 @@ const INACTIVE_NODE = {
 const ACTIVE_NODE = {
   backgroundColor: "rgb(230, 210, 168)",
   borderColor: "rgb(230, 210, 168)",
-  color: "rgb(0, 0, 0)",
+  color: "rgb(10, 46, 45)",
   boxShadow: "0 0 26px rgba(230,210,168,0.55)",
 };
 

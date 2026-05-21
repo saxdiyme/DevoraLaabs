@@ -8,19 +8,19 @@
    Devora Laabs · Brand Design Tokens (Tailwind v4 @theme)
    ─────────────────────────────────────────────────────────── */
 @theme {
-  /* Brand colors — Option B · Black Diamond (dark, champagne) */
+  /* Brand colors — Deep Sea Green + Champagne */
   --color-dl-orange: #e6d2a8;
-  --color-dl-deep: #000000;
-  --color-dl-navy: #1a1a1d;
+  --color-dl-deep: #0a2e2d;
+  --color-dl-navy: #1f4a48;
   --color-dl-peach: #d4b888;
-  --color-dl-slate: #0b0b0c;
+  --color-dl-slate: #0f3938;
   --color-dl-warm-white: #efeae0;
-  --color-dl-muted: #7a7a7e;
+  --color-dl-muted: #7a8b86;
 
   /* Brand background gradients */
   --background-image-dot-grid: radial-gradient(
     circle,
-    #1a1a1d 1px,
+    #1f4a48 1px,
     transparent 1px
   );
   --background-image-brand-gradient: linear-gradient(
@@ -136,34 +136,34 @@
    (Button, Card, Input, etc.) inherit brand colors automatically.
    ─────────────────────────────────────────────────────────── */
 .dark {
-  --background: #000000; /* dl-deep */
+  --background: #0a2e2d; /* dl-deep */
   --foreground: #efeae0; /* ivory */
-  --card: #0b0b0c; /* dl-slate */
+  --card: #0f3938; /* dl-slate */
   --card-foreground: #efeae0;
-  --popover: #0b0b0c;
+  --popover: #0f3938;
   --popover-foreground: #efeae0;
-  --primary: #e6d2a8; /* dl-orange -> champagne */
-  --primary-foreground: #000000;
-  --secondary: #1a1a1d; /* dl-navy -> charcoal border */
+  --primary: #e6d2a8; /* champagne */
+  --primary-foreground: #0a2e2d;
+  --secondary: #1f4a48; /* dl-navy -> sea border */
   --secondary-foreground: #efeae0;
-  --muted: #0b0b0c;
-  --muted-foreground: #7a7a7e;
-  --accent: #d4b888; /* dl-peach -> deeper champagne */
-  --accent-foreground: #000000;
+  --muted: #0f3938;
+  --muted-foreground: #7a8b86;
+  --accent: #d4b888; /* deeper champagne */
+  --accent-foreground: #0a2e2d;
   --destructive: oklch(0.704 0.191 22.216);
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.12);
   --ring: #e6d2a8;
   --chart-1: #e6d2a8;
   --chart-2: #d4b888;
-  --chart-3: #1a1a1d;
-  --chart-4: #0b0b0c;
-  --chart-5: #7a7a7e;
-  --sidebar: #000000;
+  --chart-3: #1f4a48;
+  --chart-4: #0f3938;
+  --chart-5: #7a8b86;
+  --sidebar: #0a2e2d;
   --sidebar-foreground: #efeae0;
   --sidebar-primary: #e6d2a8;
-  --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #0b0b0c;
+  --sidebar-primary-foreground: #0a2e2d;
+  --sidebar-accent: #0f3938;
   --sidebar-accent-foreground: #efeae0;
   --sidebar-border: rgba(255, 255, 255, 0.08);
   --sidebar-ring: #e6d2a8;
@@ -283,7 +283,7 @@
   }
 
   .bg-glass {
-    background: rgba(11, 11, 12, 0.6);
+    background: rgba(15, 57, 56, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
