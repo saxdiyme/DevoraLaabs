@@ -3,14 +3,36 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles } from "lucide-react";
-import { cases, isPlaceholder, type Case } from "@/data/cases";
+
+export type Case = {
+  id: string;
+  title: string;
+  description: string;
+  tags: string[];
+  image: string;
+  link?: string;
+  featured?: boolean;
+};
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
 
-export default function Portfolio() {
+function isPlaceholder(c: Case): boolean {
+  return (
+    c.title.startsWith("[") || c.tags.some((t) => t.startsWith("["))
+  );
+}
+
+export default function Portfolio({ cases }: { cases: Case[] }) {
+  if (cases.length === 0) {
+    return (
+      <section id="portfolio" className="py-24 text-center">
+        <p className="font-inter text-dl-muted">No projects yet.</p>
+      </section>
+    );
+  }
   const featured = cases.find((c) => c.featured) ?? cases[0];
   const next = cases.filter((c) => c.id !== featured.id).slice(0, 2);
   const restIds = new Set([featured.id, ...next.map((c) => c.id)]);

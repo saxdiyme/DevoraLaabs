@@ -44,3 +44,8 @@ next-env.d.ts
 # scratch commit message
 .commit-msg.txt
 
+# prisma local SQLite
+prisma/dev.db
+prisma/dev.db-journal
+prisma/migrations/
+

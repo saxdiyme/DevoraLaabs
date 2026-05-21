@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model SiteContent {
+  id              String   @id
+  heroEyebrow     String
+  heroLine1       String
+  heroLine2       String
+  heroSubhead     String
+  ctaEyebrow      String
+  ctaHeadingStart String
+  ctaHeadingEnd   String
+  ctaSubhead      String
+  contactEmail    String
+  contactPhone    String?
+  socialGithub    String?
+  socialLinkedin  String?
+  socialTwitter   String?
+  socialInstagram String?
+  updatedAt       DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String
+  tags        String
+  image       String
+  link        String?
+  featured    Boolean  @default(false)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

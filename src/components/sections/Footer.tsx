@@ -23,23 +23,32 @@ const COMPANY = [
   { label: "Work", href: "#portfolio" },
 ] as const;
 
-const CONTACT_EMAIL = "hello@devoralabs.io";
-
 type SocialIcon = ComponentType<SVGProps<SVGSVGElement>>;
 
-const SOCIALS: ReadonlyArray<{
-  label: string;
-  href: string;
-  Icon: SocialIcon;
-}> = [
-  { label: "GitHub", href: "https://github.com/", Icon: GithubMark },
-  { label: "LinkedIn", href: "https://linkedin.com/", Icon: LinkedinMark },
-  { label: "X (Twitter)", href: "https://x.com/", Icon: XMark },
-  { label: "Instagram", href: "https://instagram.com/", Icon: InstagramMark },
-];
+type FooterProps = {
+  email: string;
+  socials: {
+    github: string;
+    linkedin: string;
+    twitter: string;
+    instagram: string;
+  };
+};
 
-export default function Footer() {
+export default function Footer({ email, socials }: FooterProps) {
   const year = new Date().getFullYear();
+  const socialLinks: ReadonlyArray<{
+    label: string;
+    href: string;
+    Icon: SocialIcon;
+  }> = (
+    [
+      { label: "GitHub", href: socials.github, Icon: GithubMark },
+      { label: "LinkedIn", href: socials.linkedin, Icon: LinkedinMark },
+      { label: "X (Twitter)", href: socials.twitter, Icon: XMark },
+      { label: "Instagram", href: socials.instagram, Icon: InstagramMark },
+    ] as const
+  ).filter((s) => Boolean(s.href));
 
   return (
     <footer className="relative border-t border-dl-slate bg-dl-deep">
@@ -83,7 +92,7 @@ export default function Footer() {
             </p>
 
             <ul className="flex gap-3">
-              {SOCIALS.map(({ label, href, Icon }) => (
+              {socialLinks.map(({ label, href, Icon }) => (
                 <li key={label}>
                   <a
                     href={href}
@@ -107,11 +116,11 @@ export default function Footer() {
               Contact
             </h3>
             <a
-              href={`mailto:${CONTACT_EMAIL}`}
+              href={`mailto:${email}`}
               className="inline-flex items-center gap-2 font-inter text-sm text-dl-muted transition-colors hover:text-dl-orange"
             >
               <Mail size={14} />
-              {CONTACT_EMAIL}
+              {email}
             </a>
             <a
               href="#cta"

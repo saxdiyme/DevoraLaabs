@@ -20,7 +20,14 @@ const CALENDLY = process.env.NEXT_PUBLIC_CALENDLY_URL;
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function CTA() {
+type CTAProps = {
+  eyebrow: string;
+  headingStart: string;
+  headingEnd: string;
+  subhead: string;
+};
+
+export default function CTA({ eyebrow, headingStart, headingEnd, subhead }: CTAProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
 
@@ -73,14 +80,14 @@ export default function CTA() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-dl-navy/40 bg-dl-slate/50 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-dl-peach backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-dl-orange animate-glow-pulse" />
-            Start the conversation
+            {eyebrow}
           </span>
           <h2 className="mt-5 font-syne text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl">
-            <span className="text-dl-warm-white">Ready to build </span>
-            <span className="text-brand-gradient">something great?</span>
+            <span className="text-dl-warm-white">{headingStart} </span>
+            <span className="text-brand-gradient">{headingEnd}</span>
           </h2>
           <p className="mt-5 font-inter text-base text-dl-muted md:text-lg">
-            Tell us about your project — we respond within 24h.
+            {subhead}
           </p>
         </motion.div>
 

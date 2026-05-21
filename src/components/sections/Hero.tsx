@@ -17,7 +17,14 @@ const STATS = [
   { to: 3, suffix: "", label: "Countries" },
 ] as const;
 
-export default function Hero() {
+type HeroProps = {
+  eyebrow: string;
+  line1: string;
+  line2: string;
+  subhead: string;
+};
+
+export default function Hero({ eyebrow, line1, line2, subhead }: HeroProps) {
   return (
     <section
       id="hero"
@@ -45,15 +52,15 @@ export default function Hero() {
             className="inline-flex items-center gap-2 self-start rounded-full border border-dl-navy/40 bg-dl-slate/50 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-dl-peach backdrop-blur"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-dl-orange animate-glow-pulse" />
-            IT Product Studio · Kronyx Group
+            {eyebrow}
           </motion.span>
 
           <h1 className="font-syne text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <motion.span variants={FADE_UP} className="block text-brand-gradient">
-              We Build Digital
+              {line1}
             </motion.span>
             <motion.span variants={FADE_UP} className="block text-dl-warm-white">
-              Products That Scale
+              {line2}
             </motion.span>
           </h1>
 
@@ -61,9 +68,7 @@ export default function Hero() {
             variants={FADE_UP}
             className="max-w-xl font-inter text-base text-dl-muted md:text-lg"
           >
-            From mobile apps and SaaS platforms to AI-powered automation —
-            we partner with startups and enterprises to ship software that
-            compounds revenue and trust.
+            {subhead}
           </motion.p>
 
           <motion.div variants={FADE_UP} className="mt-2 flex flex-wrap gap-3">
