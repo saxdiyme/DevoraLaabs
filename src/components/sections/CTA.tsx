@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Check, Loader2 } from "lucide-react";
+import { ArrowRight, Check, Loader2 } from "lucide-react";
 
 const PROJECT_TYPES = [
   "Web Application",
@@ -16,37 +16,75 @@ const PROJECT_TYPES = [
   "Other",
 ] as const;
 
-const CALENDLY = process.env.NEXT_PUBLIC_CALENDLY_URL;
-
 type Status = "idle" | "submitting" | "success" | "error";
+
+type FieldErrors = {
+  name?: string;
+  email?: string;
+  message?: string;
+};
+
+function validateForm(
+  name: string,
+  email: string,
+  message: string,
+): FieldErrors {
+  const errors: FieldErrors = {};
+  if (!name.trim()) errors.name = "Name is required";
+  if (!email.trim()) {
+    errors.email = "Email is required";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.email = "Enter a valid email address";
+  }
+  if (!message.trim()) errors.message = "Message is required";
+  return errors;
+}
 
 type CTAProps = {
   eyebrow: string;
   headingStart: string;
   headingEnd: string;
   subhead: string;
+  contactEmail?: string;
 };
 
-export default function CTA({ eyebrow, headingStart, headingEnd, subhead }: CTAProps) {
+export default function CTA({
+  eyebrow,
+  headingStart,
+  headingEnd,
+  subhead,
+}: CTAProps) {
   const [status, setStatus] = useState<Status>("idle");
-  const [errorMsg, setErrorMsg] = useState<string>("");
+  const [serverError, setServerError] = useState<string>("");
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
+    const name = String(data.get("name") ?? "");
+    const email = String(data.get("email") ?? "");
+    const message = String(data.get("message") ?? "");
+
+    const errors = validateForm(name, email, message);
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
+
+    setFieldErrors({});
     setStatus("submitting");
-    setErrorMsg("");
+    setServerError("");
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: data.get("name"),
-          email: data.get("email"),
+          name,
+          email,
           projectType: data.get("projectType"),
-          message: data.get("message"),
+          message,
         }),
       });
       if (!res.ok) {
@@ -59,7 +97,9 @@ export default function CTA({ eyebrow, headingStart, headingEnd, subhead }: CTAP
       form.reset();
     } catch (err) {
       setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Something went wrong");
+      setServerError(
+        err instanceof Error ? err.message : "Something went wrong",
+      );
     }
   }
 
@@ -113,14 +153,16 @@ export default function CTA({ eyebrow, headingStart, headingEnd, subhead }: CTAP
                 placeholder="Jane Doe"
                 autoComplete="name"
                 required
+                error={fieldErrors.name}
               />
               <Field
                 label="Email"
                 name="email"
-                type="email"
+                type="text"
                 placeholder="jane@company.com"
                 autoComplete="email"
                 required
+                error={fieldErrors.email}
               />
               <SelectField
                 label="Project type"
@@ -134,6 +176,7 @@ export default function CTA({ eyebrow, headingStart, headingEnd, subhead }: CTAP
                 placeholder="A few sentences about your idea, timeline, and goals…"
                 required
                 className="md:col-span-2"
+                error={fieldErrors.message}
               />
 
               {status === "error" && (
@@ -141,7 +184,7 @@ export default function CTA({ eyebrow, headingStart, headingEnd, subhead }: CTAP
                   className="font-inter text-sm text-red-400 md:col-span-2"
                   role="alert"
                 >
-                  {errorMsg || "Submission failed. Please try again."}
+                  {serverError || "Submission failed. Please try again."}
                 </p>
               )}
 
@@ -166,15 +209,6 @@ export default function CTA({ eyebrow, headingStart, headingEnd, subhead }: CTAP
                     </>
                   )}
                 </button>
-                <a
-                  href={CALENDLY ?? "#cta"}
-                  target={CALENDLY ? "_blank" : undefined}
-                  rel={CALENDLY ? "noopener noreferrer" : undefined}
-                  className="inline-flex items-center gap-2 rounded-full border border-dl-navy/60 px-6 py-3 font-inter font-medium text-dl-warm-white transition-colors hover:border-dl-orange/60 hover:text-dl-orange"
-                >
-                  Book a Free Call
-                  <ArrowUpRight size={16} />
-                </a>
               </div>
             </form>
           )}
@@ -192,6 +226,7 @@ type FieldProps = {
   autoComplete?: string;
   required?: boolean;
   className?: string;
+  error?: string;
 };
 
 function Field({
@@ -202,6 +237,7 @@ function Field({
   autoComplete,
   required,
   className,
+  error,
 }: FieldProps) {
   return (
     <label className={`flex flex-col gap-2 ${className ?? ""}`}>
@@ -215,8 +251,17 @@ function Field({
         placeholder={placeholder}
         autoComplete={autoComplete}
         required={required}
-        className="rounded-lg border border-dl-navy/40 bg-dl-deep/60 px-4 py-3 font-inter text-sm text-dl-warm-white placeholder:text-dl-muted/60 transition-colors focus:border-dl-orange focus:outline-none"
+        className={`rounded-lg border bg-dl-deep/60 px-4 py-3 font-inter text-sm text-dl-warm-white placeholder:text-dl-muted/60 transition-colors focus:outline-none ${
+          error
+            ? "border-red-500 focus:border-red-400"
+            : "border-dl-navy/40 focus:border-dl-orange"
+        }`}
       />
+      {error && (
+        <span className="font-inter text-xs text-red-400" role="alert">
+          {error}
+        </span>
+      )}
     </label>
   );
 }
@@ -261,12 +306,14 @@ function TextareaField({
   placeholder,
   required,
   className,
+  error,
 }: {
   label: string;
   name: string;
   placeholder?: string;
   required?: boolean;
   className?: string;
+  error?: string;
 }) {
   return (
     <label className={`flex flex-col gap-2 ${className ?? ""}`}>
@@ -279,8 +326,17 @@ function TextareaField({
         placeholder={placeholder}
         required={required}
         rows={5}
-        className="resize-none rounded-lg border border-dl-navy/40 bg-dl-deep/60 px-4 py-3 font-inter text-sm text-dl-warm-white placeholder:text-dl-muted/60 transition-colors focus:border-dl-orange focus:outline-none"
+        className={`resize-none rounded-lg border bg-dl-deep/60 px-4 py-3 font-inter text-sm text-dl-warm-white placeholder:text-dl-muted/60 transition-colors focus:outline-none ${
+          error
+            ? "border-red-500 focus:border-red-400"
+            : "border-dl-navy/40 focus:border-dl-orange"
+        }`}
       />
+      {error && (
+        <span className="font-inter text-xs text-red-400" role="alert">
+          {error}
+        </span>
+      )}
     </label>
   );
 }

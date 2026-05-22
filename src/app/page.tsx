@@ -48,6 +48,7 @@ export default async function Home() {
           headingStart={content?.ctaHeadingStart ?? ""}
           headingEnd={content?.ctaHeadingEnd ?? ""}
           subhead={content?.ctaSubhead ?? ""}
+          contactEmail={content?.contactEmail ?? ""}
         />
       </main>
       <Footer

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { ComponentType, MouseEvent as ReactMouseEvent } from "react";
 import {
   Code2,
+  Palette,
   Smartphone,
   Sparkles,
   TabletSmartphone,
@@ -54,12 +55,21 @@ const PLATFORMS: Platform[] = [
     icon: Sparkles,
     relatedIds: [3],
   },
+  {
+    id: 5,
+    title: "Design",
+    description: "UI/UX design systems, Figma prototypes, pixel-perfect interfaces.",
+    icon: Palette,
+    relatedIds: [3],
+  },
 ];
 
 export default function SplineScene() {
+  const [mounted, setMounted] = useState(false);
   const [Spline, setSpline] = useState<ComponentType<SplineProps> | null>(null);
 
   useEffect(() => {
+    setMounted(true);
     if (!SCENE_URL) return;
     let cancelled = false;
     import("@splinetool/react-spline").then((mod) => {
@@ -69,6 +79,8 @@ export default function SplineScene() {
       cancelled = true;
     };
   }, []);
+
+  if (!mounted) return <div className="relative h-full w-full" />;
 
   if (SCENE_URL && Spline) {
     return <Spline scene={SCENE_URL} className="!h-full !w-full" />;

@@ -16,9 +16,6 @@ const SERVICES = [
 ] as const;
 
 const COMPANY = [
-  { label: "About", href: "#" },
-  { label: "Blog", href: "#" },
-  { label: "Careers", href: "#" },
   { label: "Process", href: "#process" },
   { label: "Work", href: "#portfolio" },
 ] as const;
@@ -48,7 +45,14 @@ export default function Footer({ email, socials }: FooterProps) {
       { label: "X (Twitter)", href: socials.twitter, Icon: XMark },
       { label: "Instagram", href: socials.instagram, Icon: InstagramMark },
     ] as const
-  ).filter((s) => Boolean(s.href));
+  ).filter((s) => {
+    if (!s.href) return false;
+    try {
+      return new URL(s.href).pathname.length > 1;
+    } catch {
+      return false;
+    }
+  });
 
   return (
     <footer className="relative border-t border-dl-slate bg-dl-deep">
@@ -143,23 +147,6 @@ export default function Footer({ email, socials }: FooterProps) {
             © <span suppressHydrationWarning>{year}</span> Devora Laabs · Part
             of Kronyx Group · All rights reserved.
           </p>
-          <ul className="flex flex-wrap gap-x-5 gap-y-1 font-inter text-xs text-dl-muted">
-            <li>
-              <a href="#" className="transition-colors hover:text-dl-orange">
-                Privacy
-              </a>
-            </li>
-            <li>
-              <a href="#" className="transition-colors hover:text-dl-orange">
-                Terms
-              </a>
-            </li>
-            <li>
-              <a href="#" className="transition-colors hover:text-dl-orange">
-                Cookies
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
     </footer>

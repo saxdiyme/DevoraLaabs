@@ -224,8 +224,8 @@ function ComingSoonCard({
         </h3>
         <p className="relative z-10 max-w-xs font-inter text-sm text-dl-muted">
           {large
-            ? "A featured case study slot — populate it from src/data/cases.ts to publish."
-            : "Slot reserved. Add a project to src/data/cases.ts to fill this card."}
+            ? "A featured case study is on its way."
+            : "More case studies coming soon."}
         </p>
       </div>
     </motion.div>

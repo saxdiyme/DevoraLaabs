@@ -6,9 +6,13 @@ const ROW_1 = [
   "React",
   "Next.js",
   "TypeScript",
-  "Tailwind",
+  "Tailwind CSS",
   "Node.js",
   "PostgreSQL",
+  "Redis",
+  "GraphQL",
+  "Prisma",
+  "Stripe",
 ] as const;
 
 const ROW_2 = [
@@ -19,6 +23,9 @@ const ROW_2 = [
   "AWS",
   "Docker",
   "OpenAI",
+  "Firebase",
+  "Supabase",
+  "GitHub Actions",
 ] as const;
 
 export default function TechStack() {
@@ -71,7 +78,7 @@ function MarqueeRow({
   items: readonly string[];
   direction: "left" | "right";
 }) {
-  const doubled = [...items, ...items];
+  const doubled = [...items, ...items, ...items, ...items];
   const animClass =
     direction === "left" ? "animate-marquee" : "animate-marquee-reverse";
 
